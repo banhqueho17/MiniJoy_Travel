@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>MiniJoy Travel</title>
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background:#f4f6f9;
+}
+
+/* TOP BAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f1f3f6;
+    padding:8px 40px;   /* chỉnh giống header */
+    font-size:14px;
+    color:#444;
+}
+
+.topbar-left span{
+    margin-right:25px;
+}
+
+.topbar-right a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#444;
+}
+
+.topbar-right a:hover{
+    color:#0077cc;
+}
+
+/* MAIN HEADER */
+.top-contact{
+    background:#0099cc;
+    padding:8px 20px;
+    font-size:14px;
+    display:flex;
+    justify-content:space-between; /* email trái - hotline phải */
+    color:white;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 20px;   /* giảm từ 40px xuống */
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.logo img{
+    width:100px;   /* chỉnh kích thước logo */
+    height:auto;
+}
+
+.logo h1{
+    margin:0;
+    font-size:36px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:orange;
+}
+.logo{
+    font-size:26px;
+    font-weight:700;
+    color:#1f6fb2;
+}
+
+.logo span{
+    color:#ff7a00;
+}
+
+/* SEARCH */
+.search{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.search input{
+    width:320px;
+    padding:10px 18px;
+    border-radius:25px;
+    border:1px solid #ddd;
+    outline:none;
+    font-size:14px;
+}
+
+.search input:focus{
+    border-color:#1f6fb2;
+}
+
+/* MENU */
+.menu{
+    display:flex;
+    align-items:center;
+}
+
+.menu a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#2d5fa4;
+    font-weight:500;
+    font-size:15px;
+}
+
+.menu a:hover{
+    color:#ff7a00;
+}
+
+/* BUTTON */
+.btn-tour{
+    margin-left:20px;
+    background:#ffe7c4;
+    border:none;
+    padding:10px 18px;
+    border-radius:22px;
+    font-weight:600;
+    color:#ff6b2c;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-tour:hover{
+    background:#ffd79b;
+}
+
+/* Banner */
+.banner{
+    width:100%;
+    height:500px; /* tăng chiều cao cho đẹp */
+
+    background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+    background-size:cover;        /* phủ toàn khung */
+    background-position:center;   /* căn giữa ảnh */
+    background-repeat:no-repeat;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:48px;
+    font-weight:bold;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+
+.menu{
+    display:none;
+}
+
+.search input{
+    width:200px;
+}
+
+}
+
+/* KHÁM PHÁ SẢN PHẨM*/ 
+.tour-section{
+    padding:60px 80px;
+    background:#f5f7fb;
+}
+
+.tour-section h2{
+    color:#1f6fb2;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.line{
+    width:120px;
+    height:4px;
+    background:#1f6fb2;
+    margin-bottom:20px;
+}
+
+.tour-desc{
+    max-width:700px;
+    line-height:1.6;
+    margin-bottom:40px;
+}
+
+/* list card */
+.tour-list{
+    display:flex;
+    gap:25px;
+}
+
+/* card */
+.tour-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    flex:1;
+}
+
+.tour-card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    display:block;
+}
+
+/* overlay */
+.tour-title{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:15px;
+    color:white;
+    font-weight:600;
+    font-size:16px;
+    background:linear-gradient(transparent, rgba(0,0,0,0.6));
+}
+
+/*tour lễ 30/4*/
+body{
+font-family:Arial;
+background:#f4f4f4;
+margin:0;
+}
+
+.tour-section{
+padding:50px 80px;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:30px;
+}
+
+.tour-container{
+display:flex;
+gap:30px;
+}
+
+.tour-card{
+background:white;
+border-radius:15px;
+width:350px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+overflow:hidden;
+padding-bottom:20px;
+}
+
+.tour-img{
+position:relative;
+}
+
+.tour-img img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.tag{
+position:absolute;
+top:15px;
+left:15px;
+background:#e53935;
+color:white;
+padding:6px 12px;
+font-size:13px;
+border-radius:4px;
+}
+
+.tour-card h3{
+padding:15px;
+font-size:18px;
+}
+
+.rating{
+padding:0 15px;
+color:#555;
+font-size:14px;
+}
+
+.score{
+background:#4caf50;
+color:white;
+padding:4px 8px;
+border-radius:6px;
+margin-right:6px;
+}
+
+ul{
+padding:10px 30px;
+color:#0099cc;
+font-size:14px;
+}
+
+.price{
+text-align:right;
+padding-right:20px;
+font-size:22px;
+color:#ff6f00;
+font-weight:bold;
+}
+
+.highlight{
+border:2px solid #00bcd4;
+box-shadow:0 0 20px rgba(0,188,212,0.4);
+}
+.section-title{
+font-size:36px;
+font-weight:700;
+color:#2e6da4;
+text-transform:uppercase;
+margin-top:60px;
+position:relative;
+}
+
+.section-title::after{
+content:"";
+width:120px;
+height:4px;
+background:#2e6da4;
+display:block;
+margin-top:10px;
+}
+
+.tour-img{
+overflow:hidden;
+border-radius:15px 15px 0 0;
+}
+
+.tour-img img{
+width:100%;
+transition:0.5s;
+}
+
+.tour-card:hover .tour-img img{
+transform:scale(1.1);
+}
+
+.container{
+max-width:1200px;
+margin:0 auto;
+padding:0 10px;
+}
+
+/*tour banner*/
+.promo-banner{
+padding:40px 0;
+background:#f3f6fb;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 10px;
+}
+
+/* banner */
+.banner-box{
+width:100%;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.banner-box img{
+width:100%;
+display:block;
+}
+
+/* text */
+.banner-text{
+text-align:center;
+color:#1f5c8b;
+font-size:28px;
+font-weight:700;
+margin-top:25px;
+letter-spacing:1px;
+}
+.travel-highlight{
+padding:60px 0;
+background:#f3f6fb;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 10px;
+}
+
+/* layout banner */
+.banner-layout{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:20px;
+}
+
+/* banner lớn */
+.banner-big img{
+width:100%;
+border-radius:16px;
+display:block;
+}
+
+/* banner phải */
+.banner-right{
+display:grid;
+grid-template-rows:1fr 1fr;
+gap:20px;
+}
+
+.banner-right img{
+width:100%;
+border-radius:16px;
+display:block;
+}
+
+/* text */
+.highlight-text{
+text-align:center;
+margin-top:40px;
+}
+
+.highlight-text h2{
+font-size:32px;
+color:#2b5f8a;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.highlight-text p{
+max-width:800px;
+margin:auto;
+color:#555;
+line-height:1.6;
+}
+
+.image-layout{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:12px; /* giảm khoảng cách giữa ảnh */
+}
+
+.image-right{
+display:grid;
+grid-template-rows:1fr 1fr;
+gap:12px; /* giảm khoảng cách dọc */
+}
+
+.image-layout img,
+.image-right img{
+width:100%;
+display:block;
+border-radius:14px;
+object-fit:cover;
+}
+</style>
+</head>
+
+<head>
+<meta charset="UTF-8">
+
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO cơ bản -->
+<meta name="description" content="Motor Bay Tour">
+<meta name="keywords" content="du lịch, tour du lịch, MiniJoy Travel, tour Việt Nam, tour giá rẻ, Motor bay tour">
+<meta name="author" content="MiniJoy Travel">
+
+<!-- Open Graph (hiển thị khi share Facebook) -->
+<meta property="og:title" content="MiniJoy Travel - Khám phá thế giới">
+<meta property="og:description" content="Trải nghiệm du lịch chuyên nghiệp với giá tốt nhất.">
+<meta property="og:image" content="logo.png">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="logo.png" type="image/png">
+
+<title>MiniJoy Travel</title>
+</head>
+
+<body>
+<!-- TOP BAR -->
+<div class="topbar">
+
+<div class="topbar-left">
+<span>✉ info@minijoytravel.com</span>
+<span>📞 1900 1707 (8:00 - 22:00)</span>
+</div>
+
+<div class="topbar-right">
+<a href="diadiem.html">Chọn điểm khởi hành</a>
+<a href="lienhe.html">Liên hệ</a>
+</div>
+
+</div>
+
+
+<!-- Trang chủ chính -->
+
+<div class="header">
+
+<div class="logo">
+        <img src="logo.png" alt="Logo MiniJoy">
+MiniJoy <span>Travel</span>
+</div>
+
+<div class="search">
+<input type="text" placeholder="Tìm tour du lịch...">
+</div>
+
+<div class="menu">
+<a href="index.html">Trang chủ</a>
+<a href="diadiem.html">Địa điểm</a>
+<a href="blog.html">Blog</a>
+<a href="dichvu.html">Dịch vụ</a>
+<a href="lienhe.html">Liên hệ</a>
+
+<button class="btn-tour">
+Tour theo yêu cầu
+</button>
+</div>
+
+</div>
+
+<div class="banner">
+Khám Phá Thế Giới
+</div>
+
+<!-- khám phá sản phẩm -->
+ <div class="container">
+
+<h2 class="section-title">KHÁM PHÁ SẢN PHẨM MINIJOY TRAVEL</h2>
+
+
+    <p class="tour-desc">
+        Hãy tận hưởng trải nghiệm du lịch chuyên nghiệp, mang lại cho bạn những khoảnh khắc tuyệt
+        vời và nâng tầm cuộc sống. Chúng tôi cam kết mang đến những chuyến đi đáng nhớ, giúp
+        bạn khám phá thế giới theo cách hoàn hảo nhất.
+    </p>
+
+    <div class="tour-list">
+
+        <div class="tour-card">
+            <img src="4.jpg">
+            <div class="tour-title">
+                KỲ NGHỈ MÙA XUÂN Ở TÂY NAM BỘ CÙNG GIA ĐÌNH
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="5.jpg">
+            <div class="tour-title">
+                HÒA CÙNG SẮC XUÂN CÙNG CẢNH QUAN ĐÀ NẴNG
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="6.jpg">
+            <div class="tour-title">
+                TOUR LỄ 30/4 GIÁ TỐT CHO GIA ĐÌNH
+            </div>
+        </div>
+
+    </div>
+
+<!--Motor bay tour-->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+.container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 10px;
+}
+
+   h1 {
+  color: #2c5aa0;
+  font-size: 36px;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 4px;
+  background: #2c5aa0;
+  margin-top: 8px;
+}
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .card-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      width: 32%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .rating {
+      background: #4caf50;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 18px;
+      color: #0077cc;
+    }
+
+    .price {
+      color: #ff6600;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .card {
+        width: 100%;
+      }
+    }
+
+    
+  </style>
+<body>
+
+<div class="container">
+  <h1>MOTOR BAY TOUR</h1>
+  <p class="subtitle">Trải nghiệm phượt xe máy – Tự do khám phá</p>
+
+  <div class="card-group">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="22.jpg" alt="">
+      <div class="card-content">
+        <h3>Tour Vịnh Miền Bắc 5N4Đ</h3>
+        <span class="score">8.8</span> Rất tốt | 5 đánh giá
+        <ul>
+          <li>Vịnh Hạ Long</li>
+          <li>Vịnh Lan Hạ</li>
+          <li>Vịnh Bái Tử Long</li>
+        </ul>
+        <div class="price">2.990.000 đ</div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="21.jpg" alt="">
+      <div class="card-content">
+        <h3>Tour Vịnh Miền Trung 3N2Đ</h3>
+<span class="score">9.2</span> Rất tốt | 15 đánh giá
+        <ul>
+          <li>Vịnh Lăng Cô</li>
+          <li>Vịnh Vĩnh Hy</li>
+          <li>Vịnh Xuân Đài</li>
+        </ul>
+        <div class="price">3.990.000 đ</div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <img src="23.jpg" alt="">
+      <div class="card-content">
+        <h3>Tour Vịnh Miền Nam 4N3Đ</h3>
+<span class="score">9.0</span> Rất tốt | 9 đánh giá
+        <ul>
+          <li>Vịnh Hà Tiên</li>
+          <li>Vịnh Gành Rái</li>
+          <li>Vịnh Vũng Tàu</li>
+        </ul>
+        <div class="price">5.490.000 đ</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Tour lễ 30/4 -->
+
+<h2 class="section-title">TOUR LỄ 30/04 NỘI ĐỊA</h2>
+<p class="subtitle">Chơi Lễ Thả Ga, Không Lo Về Giá</p>
+
+</div>
+    <section class="tour-section">
+
+
+<div class="tour-container">
+
+<!-- TOUR 1 -->
+<div class="tour-card">
+<div class="tour-img">
+<span class="tag">KH 30/04 & 01/05</span>
+<img src="8.jpg">
+</div>
+
+<h3>Tour Đà Nẵng 3N2Đ: HCM - Đà Nẵng - Rừng Dừa Bảy Mẫu - Hội An</h3>
+
+<div class="rating">
+<span class="score">8.8</span> Rất tốt | 5 đánh giá
+</div>
+
+<ul>
+<li>Khám phá Bà Nà Hills</li>
+<li>Rừng Dừa Bảy Mẫu</li>
+<li>Phố Cổ Hội An</li>
+</ul>
+
+<div class="price">5.690.000 đ</div>
+
+</div>
+
+<!-- TOUR 2 -->
+<div class="tour-card">
+
+<div class="tour-img">
+<span class="tag">Bay Vasco</span>
+<img src="9.jpg">
+</div>
+
+<h3>Tour Hành Hương Côn Đảo 3N2Đ: Vùng Đất Huyền Thoại Tâm Linh</h3>
+
+<div class="rating">
+<span class="score">8.9</span> Rất tốt | 5 đánh giá
+</div>
+
+<ul>
+<li>Hành Hương Viếng Mộ Cô Sáu</li>
+<li>Thắng Cảnh Đẹp Tựa Như Tranh</li>
+</ul>
+
+<div class="price">6.990.000 đ</div>
+
+</div>
+
+<!-- TOUR 3 -->
+ 
+<div class="tour-card">
+
+<div class="tour-img">
+<span class="tag">Vietjet Air</span>
+<img src="10.jpg">
+</div>
+
+<h3>Tour Miền Bắc 5N4Đ: HCM - Hà Giang - Đồng Văn</h3>
+
+<div class="rating">
+<span class="score good">10.0</span> Tuyệt vời | 9 đánh giá
+</div>
+
+<ul>
+<li>Thác Bản Giốc</li>
+<li>Cột cờ Lũng Cú</li>
+<li>Sông Nho Quế</li>
+</ul>
+
+<div class="price">8.490.000 đ</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Tour Xuân -->
+<section class="tour-xuan">
+
+<div class="container">
+
+<h2 class="section-title">TOUR DU XUÂN NỘI ĐỊA</h2>
+<p class="subtitle">Xuân An Khang, Chơi Hết Mình</p>
+
+<div class="tour-list">
+
+<!-- TOUR 1 -->
+<div class="tour-card">
+<div class="tour-img">
+<span class="tag">VietNam Airline</span>
+<img src="11.jpg">
+</div>
+
+<h3>Tour Tết Phương Nam 3N2Đ: HCM - Bến Tre - Cần Thơ</h3>
+
+<div class="rating">
+<span class="score">9.0</span> Rất tốt | 5 đánh giá
+</div>
+
+<ul>
+<li>Bến Tre</li>
+<li>Cần Thơ</li>
+<li>Chợ Nổi</li>
+</ul>
+
+<div class="price">7.388.000 đ</div>
+
+</div>
+
+<!-- TOUR 2 -->
+<div class="tour-card">
+
+<div class="tour-img">
+<span class="tag">Bamboo Airline</span>
+<img src="12.png">
+</div>
+
+<h3>Tour Du Xuân Bính Ngọ Miền Trung 3N2Đ</h3>
+
+<div class="rating">
+<span class="score">9.3</span> Rất tốt | 5 đánh giá
+</div>
+
+<ul>
+<li>Chùa Quan Thế Âm</li>
+<li>Rừng Dừa Bảy Mẫu</li>
+<li>Sơn Trà</li>
+<li>Bà Nà Hill</li>
+</ul>
+
+<div class="price">2.650.000 đ</div>
+
+</div>
+
+<!-- TOUR 3 -->
+ 
+<div class="tour-card">
+
+<div class="tour-img">
+<span class="tag">Vietjet Air</span>
+<img src="10.jpg">
+</div>
+
+<h3>Tour Duân Bính Ngọ Miền Bắc 6N5Đ</h3>
+
+<div class="rating">
+<span class="score good">10.0</span> Tuyệt vời | 9 đánh giá
+</div>
+
+<ul>
+<li>Chùa Bái Đính</li>
+<li>Yên Tử</li>
+<li>Sapa</li>
+</ul>
+
+<div class="price">7.080.000 đ</div>
+
+</div>
+
+</div>
+
+<!-- banner du lich -->
+ <h2 class="banner-text">
+CHỈ MỘT CHẠM - ĐỦ DỊCH VỤ !
+</h2>
+ <p></p>
+<section class="promo-banner">
+
+<div class="container">
+
+<div class="banner-box">
+<img src="14.jpg" alt="Banner du lịch">
+</div>
+
+
+
+</div>
+
+</section>
+<!-- Tiêu đề -->
+
+<div class="highlight-text">
+
+<h2>ĐIỂM DU LỊCH HẤP DẪN</h2>
+
+<p>
+MiniJoy Travel luôn có những sản phẩm đến các điểm du lịch hấp dẫn trải dài 
+dọc suốt mảnh đất hình chữ S và khắp năm châu. Du khách có thể chọn một 
+điểm đến du lịch hấp dẫn để khám phá và trải nghiệm với mức giá vô cùng hợp lý.
+</p>
+
+<section class="travel-highlight">
+
+<div class="container">
+
+<div class="banner-layout">
+
+<!-- Banner lớn -->
+ 
+<div class="banner-big">
+<img src="18.jpg" alt="">
+</div>
+
+<!-- Banner nhỏ -->
+<div class="banner-right">
+
+<img src="19.jpg" alt="">
+<img src="20.jpg" alt="">
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+</body>
+
+<!--footer-->
+<style>
+    
+.footer{
+position:relative;
+background:#ffffff;
+color:#1e3a8a;
+padding:60px 0 20px;
+overflow:hidden;
+}
+
+/* ảnh nền mờ */
+
+.footer-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:url("17.jpg") center/cover no-repeat;
+
+opacity:0.30;
+z-index:0;
+}
+
+/* container */
+
+.footer-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:40px;
+padding:0 40px;
+position:relative;
+z-index:1;
+}
+
+/* logo */
+
+.footer-logo{
+width:180px;
+margin-bottom:15px;
+}
+
+/* tiêu đề */
+
+.footer-col h3{
+margin-bottom:15px;
+font-size:18px;
+}
+
+/* list */
+
+.footer-col ul{
+list-style:none;
+padding:0;
+}
+
+.footer-col ul li{
+margin-bottom:10px;
+color:#0c56b0;
+}
+
+/* link */
+.footer-text{
+color:#1e3a8a;
+font-weight:600;
+}
+
+.footer-lienhe{
+color:#1e3a8a;
+font-weight:600;
+}
+/* social */
+
+.social{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+/* bottom */
+
+.footer-bottom{
+text-align:center;
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,0.1);
+padding-top:15px;
+color:#94a3b8;
+}
+.footer-brand{
+font-size:28px;
+font-weight:700;
+}
+
+.brand-blue{
+color:#2b6cb0; /* xanh */
+}
+
+.brand-orange{
+color:#ff6a00; /* cam */
+}
+
+.footer-brand{
+display:flex;
+align-items:center;
+gap:15px; /* khoảng cách logo và chữ */
+justify-content:center;
+}
+
+/* logo */
+
+.logo{
+width:70px;
+}
+
+/* chữ */
+
+.footer-brand h2{
+font-size:32px;
+font-weight:700;
+margin:0;
+}
+
+.brand-blue{
+color:#2b6cb0;
+}
+
+.brand-orange{
+color:#ff6a00;
+}
+</style>
+
+<body>
+    
+<footer class="footer">
+
+<div class="footer-overlay"></div>
+
+<div class="footer-container">
+
+<div class="footer-col logo-col">
+
+
+<div class="footer-brand">
+
+<img src="logo.png" class="logo">
+
+<h2>
+<span class="brand-blue">MiniJoy</span>
+<span class="brand-orange">Travel</span>
+</h2>
+
+</div>
+<p>
+Mang đến những hành trình tuyệt vời với trải nghiệm đáng nhớ.
+Khám phá thế giới cùng chúng tôi với giá tốt nhất.
+</p>
+
+</div>
+
+<div class="footer-text">
+
+<h3>Liên kết nhanh</h3>
+
+<ul>
+<li><a href="webtravel.html">Trang chủ</a></li>
+<li><a href="diadiem.html">Tour trong nước</a></li>
+<li><a href="dichvu.html">Đặt Tour</a></li>
+<li><a href="webtravel.html">Khuyến mãi</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-lienhe">
+
+<h3>Liên hệ</h3>
+
+<h4>TRỤ SỞ CHÍNH</h4>
+<p>📍 190 Pasteur, Phường Xuân Hòa, TP. Hồ Chí Minh</p>
+<p>☎ Hotline: (84-28) 38 668 999</p>
+<p>📠 Fax: (84-28) 38 29 9142</p>
+<p>✉ Email: info@vietravel.com</p>
+
+<h4>PHÒNG KINH DOANH DU LỊCH CHỢ LỚN</h4>
+<p>📍 86A Châu Văn Liêm, Phường Chợ Lớn</p>
+<p>☎ Hotline: (84-28) 35 358 709</p>
+
+
+</ul>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Theo dõi</h3>
+
+<div class="social">
+
+<a href="#">Facebook</a>
+<a href="#">Instagram</a>
+<a href="#">Youtube</a>
+
+</div>
+</div>
+</div>
+</footer>
+</body>

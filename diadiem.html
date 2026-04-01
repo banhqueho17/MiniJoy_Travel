@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniJoy Travel</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background:#f4f6f9;
+}
+.container{
+    width:1200px;
+    margin:auto;
+}
+/* TOP BAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f1f3f6;
+    padding:8px 40px;   /* chỉnh giống header */
+    font-size:14px;
+    color:#444;
+}
+
+
+.topbar-left span{
+    margin-right:25px;
+}
+
+.topbar-right a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#444;
+}
+
+.topbar-right a:hover{
+    color:#0077cc;
+}
+
+/* MAIN HEADER */
+.top-contact{
+    background:#0099cc;
+    padding:8px 20px;
+    font-size:14px;
+    display:flex;
+    justify-content:space-between; /* email trái - hotline phải */
+    color:white;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 20px;   /* giảm từ 40px xuống */
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.logo img{
+    width:100px;   /* chỉnh kích thước logo */
+    height:auto;
+}
+
+.logo h1{
+    margin:0;
+    font-size:36px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:orange;
+}
+.logo{
+    font-size:26px;
+    font-weight:700;
+    color:#1f6fb2;
+}
+
+.logo span{
+    color:#ff7a00;
+}
+
+/* SEARCH */
+
+.search{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.search input{
+    width:320px;
+    padding:10px 18px;
+    border-radius:25px;
+    border:1px solid #ddd;
+    outline:none;
+    font-size:14px;
+}
+
+.search input:focus{
+    border-color:#1f6fb2;
+}
+
+/* MENU */
+
+.menu{
+    display:flex;
+    align-items:center;
+}
+
+.menu a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#2d5fa4;
+    font-weight:500;
+    font-size:15px;
+}
+
+.menu a:hover{
+    color:#ff7a00;
+}
+
+/* BUTTON */
+
+.btn-tour{
+    margin-left:20px;
+    background:#ffe7c4;
+    border:none;
+    padding:10px 18px;
+    border-radius:22px;
+    font-weight:600;
+    color:#ff6b2c;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-tour:hover{
+    background:#ffd79b;
+}
+
+/* Banner */
+.banner{
+    width:100%;
+    height:500px; /* tăng chiều cao cho đẹp */
+
+    background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+    background-size:cover;        /* phủ toàn khung */
+    background-position:center;   /* căn giữa ảnh */
+    background-repeat:no-repeat;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:48px;
+    font-weight:bold;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.menu{
+    display:none;
+}
+
+.search input{
+    width:200px;
+}
+
+}
+
+
+/* MEGA MENU */
+
+.menu-item{
+position:relative;
+}
+
+.mega-menu{
+display:none;
+position:absolute;
+top:55px;
+left:50%;
+transform:translateX(-50%);
+width:900px;
+background:white;
+padding:35px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+border-radius:12px;
+z-index:999;
+}
+
+.menu-columns{
+display:flex;
+gap:40px;
+}
+
+.menu-column{
+display:flex;
+flex-direction:column;
+}
+
+.menu-column h3{
+margin-bottom:10px;
+color:#333;
+}
+
+.menu-column a{
+color:#555;
+text-decoration:none;
+padding:5px 0;
+}
+
+.menu-column a:hover{
+color:#0099cc;
+}
+
+.menu-item:hover .mega-menu{
+display:block;
+}
+
+/* BANNER */
+
+.banner{
+background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+height:400px;
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+color:white;
+font-weight:bold;
+}
+
+/* DESTINATIONS */
+
+.destinations{
+padding:40px;
+max-width:1200px;
+margin:auto;
+}
+
+/* TABS */
+
+.tabs{
+display:flex;
+justify-content:center;   /* căn giữa */
+align-items:center;
+gap:40px;
+margin-bottom:40px;
+flex-wrap:wrap;
+font-weight:bold;
+font-size:18px;
+}
+
+.tabs span{
+cursor:pointer;
+padding-bottom:6px;
+}
+
+.tabs .active{
+color:#0077cc;
+border-bottom:3px solid #0077cc;
+}
+
+/* GRID LAYOUT */
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+grid-auto-rows:220px;
+gap:20px;
+}
+
+.card{
+position:relative;
+border-radius:15px;
+overflow:hidden;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.4s;
+}
+
+.card:hover img{
+transform:scale(1.1);
+}
+
+/* TEXT */
+
+.card h3{
+position:absolute;
+bottom:15px;
+left:20px;
+color:white;
+font-size:22px;
+font-weight:bold;
+text-shadow:0 2px 6px rgba(0,0,0,0.6);
+}
+
+.card button{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+padding:10px 20px;
+border:none;
+background:#0077cc;
+color:white;
+border-radius:6px;
+display:none;
+}
+
+.card:hover button{
+display:block;
+}
+
+/* SIZE VARIATIONS */
+.big{
+grid-column:span 2;
+grid-row:span 2;
+}
+
+.wide{
+grid-column:span 2;
+}
+
+.tall{
+grid-row:span 2;
+}
+
+.region{
+display:none;
+}
+
+.region.active{
+display:grid;
+}
+
+
+</style>
+</head>
+
+
+<nav>
+
+<body>
+<!-- TOP BAR -->
+<div class="topbar">
+
+<div class="topbar-left">
+<span>✉ info@minijoytravel.com</span>
+<span>📞 1900 1808 (8:00 - 22:00)</span>
+</div>
+
+<div class="topbar-right">
+<a href="diadiem.html">Chọn điểm khởi hành</a>
+<a href="lienhe.html">Liên hệ</a>
+</div>
+
+</div>
+
+
+<!-- Trang chủ chính -->
+
+<div class="header">
+
+<div class="logo">
+        <img src="logo.png" alt="Logo MiniJoy">
+MiniJoy <span>Travel</span>
+</div>
+
+<div class="search">
+<input type="text" placeholder="Tìm tour du lịch...">
+</div>
+
+<div class="menu">
+<a href="index.html">Trang chủ</a>
+<a href="diadiem.html">Địa điểm</a>
+<a href="blog.html">Blog</a>
+<a href="dichvu.html">Dịch vụ</a>
+<a href="lienhe.html">Liên hệ</a>
+
+<button class="btn-tour">
+Tour theo yêu cầu
+</button>
+</div>
+
+</div>
+
+    
+<div class="mega-menu">
+
+<div class="menu-columns">
+
+<div class="menu-column">
+<h3>MIỀN BẮC</h3>
+<a href="#">Hà Nội</a>
+<a href="#">Hà Giang</a>
+<a href="#">Sa Pa</a>
+<a href="#">Quảng Ninh</a>
+<a href="#">Ninh Bình</a>
+<a href="#">Yên Bái</a>
+</div>
+
+<div class="menu-column">
+<h3>MIỀN TRUNG</h3>
+<a href="#">Huế</a>
+<a href="#">Đà Nẵng</a>
+<a href="#">Hội An</a>
+<a href="#">Quảng Bình</a>
+<a href="#">Quy Nhơn</a>
+<a href="#">Nha Trang</a>
+</div>
+
+<div class="menu-column">
+<h3>MIỀN NAM</h3>
+<a href="#">TP.HCM</a>
+<a href="#">Vũng Tàu</a>
+<a href="#">Phú Quốc</a>
+<a href="#">Cần Thơ</a>
+<a href="#">An Giang</a>
+<a href="#">Cà Mau</a>
+</div>
+
+<div class="menu-column">
+<h3>TÂY NGUYÊN</h3>
+<a href="#">Đà Lạt</a>
+<a href="#">Gia Lai</a>
+<a href="#">Kon Tum</a>
+<a href="#">Buôn Ma Thuột</a>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+</nav>
+
+</header>
+
+<div class="banner">
+Khám Phá Thế Giới
+</div>
+
+<section class="destinations">
+
+<div class="tabs">
+<span class="active">Miền Bắc</span>
+<span>Miền Trung</span>
+<span>Miền Đông Nam Bộ</span>
+<span>Miền Tây Nam Bộ</span>
+</div>
+
+
+<!-- MIỀN BẮC -->
+
+<div class="grid region active">
+
+<div class="card big">
+<img src="https://images.unsplash.com/photo-1528127269322-539801943592">
+<h3>QUẢNG NINH</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596436889106-be35e843f974">
+<h3>HÀ GIANG</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://dulichviet.com.vn/images/bandidau/top-18-dia-diem-du-lich-yen-bai-tuyet-dep-nhat-dinh-phai-trai-nghiem.jpg">
+<h3>YÊN BÁI</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://cms.junglebosstours.com/assets/83b64870-b6c9-4d64-a4d3-d00c56a22a0b">
+<h3>NINH BÌNH</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card wide">
+<img src="1.jpg">
+<h3>LÀO CAI</h3>
+<button>Khám phá</button>
+</div>
+
+</div>
+
+
+<!-- MIỀN TRUNG -->
+
+<div class="grid region">
+
+<div class="card big">
+<img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b">
+<h3>ĐÀ NẴNG</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://reviewvilla.vn/wp-content/uploads/2022/04/Dia_diem_du_lich_o_Nha_Trang-1-1-e1650874316344.jpg">
+<h3>NHA TRANG</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555921015-5532091f6026">
+<h3>HUẾ</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://api.sovaba.travel/uploads/hoi_an_76f65a48c5.jpg">
+<h3>HỘI AN</h3>
+<button>Khám phá</button>
+</div> 
+
+<div class="card wide">
+<img src="https://booking.muongthanh.com/upload_images/images/H%60/phong-nha-ke-bang.jpg">
+<h3>QUẢNG BÌNH</h3>
+<button>Khám phá</button>
+</div>
+
+</div>
+
+
+<!-- MIỀN ĐÔNG NAM BỘ -->
+
+<div class="grid region">
+
+<div class="card big">
+<img src="https://media.thanhtra.com.vn/public/uploads/2025/06/07/6843d8c56303b8a48a07c15f.jpg?w=1600">
+<h3>TP.HCM</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://homepage.momocdn.net/blogscontents/momo-upload-api-221013140622-638012667825895595.jpeg">
+<h3>VŨNG TÀU</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="2.jpg">
+<h3>TÂY NINH</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://media.vneconomy.vn/images/upload/2023/08/16/bien-hoa-20230320111349661.jpg">
+<h3>ĐỒNG NAI</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card wide">
+<img src="https://go2joy.s3.ap-southeast-1.amazonaws.com/blog/wp-content/uploads/2022/04/24030513/khu-du-lich-o-binh-duong.jpg">
+<h3>BÌNH DƯƠNG</h3>
+<button>Khám phá</button>
+</div>
+
+</div>
+
+
+<!-- MIỀN TÂY NAM BỘ -->
+
+<div class="grid region">
+
+<div class="card big">
+<img src="https://ik.imagekit.io/tvlk/blog/2025/02/YxzFGZxQ-kinh-nghiem-du-lich-phu-quoc-6.jpg">
+<h3>PHÚ QUỐC</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://baohagiang.vn/file/dataimages/202007/original/images1466239_dong_thot_not_an_giang_mua_nuoc_noi_7_5.jpg">
+<h3>AN GIANG</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://etrip4utravel.s3-ap-southeast-1.amazonaws.com/images/tinymce/2021/07/0e43a4d6-29e0-480d-a7f7-43f7bef30466.jpg">
+<h3>TIỀN GIANG</h3>
+<button>Khám phá</button>
+</div>
+
+<div class="card">
+<img src="https://phuotvivu.com/blog/wp-content/uploads/2021/06/c%C3%A0-mau2.jpg">
+<h3>CÀ MAU</h3>
+<button>Khám phá</button>
+</div> 
+
+<div class="card wide">
+<img src="7.jpg">
+<h3>BẾN TRE</h3>
+<button>Khám phá</button>
+</div>
+
+
+</div>
+
+</section>
+
+<script>
+
+const tabs = document.querySelectorAll(".tabs span")
+const regions = document.querySelectorAll(".region")
+
+tabs.forEach((tab,index)=>{
+
+tab.onclick = () =>{
+
+tabs.forEach(t=>t.classList.remove("active"))
+regions.forEach(r=>r.classList.remove("active"))
+
+tab.classList.add("active")
+regions[index].classList.add("active")
+
+}
+
+})
+
+</script>
+</body>
+</html>
+<!--footer-->
+<style>
+    
+.footer{
+position:relative;
+background:#ffffff;
+color:#1e3a8a;
+padding:60px 0 20px;
+overflow:hidden;
+}
+
+/* ảnh nền mờ */
+
+.footer-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:url("17.jpg") center/cover no-repeat;
+
+opacity:0.30;
+z-index:0;
+}
+
+/* container */
+
+.footer-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:40px;
+padding:0 40px;
+position:relative;
+z-index:1;
+}
+
+/* logo */
+
+.footer-logo{
+width:180px;
+margin-bottom:15px;
+}
+
+/* tiêu đề */
+
+.footer-col h3{
+margin-bottom:15px;
+font-size:18px;
+}
+
+/* list */
+
+.footer-col ul{
+list-style:none;
+padding:0;
+}
+
+.footer-col ul li{
+margin-bottom:10px;
+color:#0c56b0;
+}
+
+/* link */
+.footer-text{
+color:#1e3a8a;
+font-weight:600;
+}
+
+.footer-lienhe{
+color:#1e3a8a;
+font-weight:600;
+}
+/* social */
+
+.social{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+/* bottom */
+
+.footer-bottom{
+text-align:center;
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,0.1);
+padding-top:15px;
+color:#94a3b8;
+}
+.footer-brand{
+font-size:28px;
+font-weight:700;
+}
+
+.brand-blue{
+color:#2b6cb0; /* xanh */
+}
+
+.brand-orange{
+color:#ff6a00; /* cam */
+}
+
+.footer-brand{
+display:flex;
+align-items:center;
+gap:15px; /* khoảng cách logo và chữ */
+justify-content:center;
+}
+
+/* logo */
+
+.logo{
+width:70px;
+}
+
+/* chữ */
+
+.footer-brand h2{
+font-size:32px;
+font-weight:700;
+margin:0;
+}
+
+.brand-blue{
+color:#2b6cb0;
+}
+
+.brand-orange{
+color:#ff6a00;
+}
+</style>
+
+<body>
+    
+<footer class="footer">
+
+<div class="footer-overlay"></div>
+
+<div class="footer-container">
+
+<div class="footer-col logo-col">
+
+
+<div class="footer-brand">
+
+<img src="logo.png" class="logo">
+
+<h2>
+<span class="brand-blue">MiniJoy</span>
+<span class="brand-orange">Travel</span>
+</h2>
+
+</div>
+<p>
+Mang đến những hành trình tuyệt vời với trải nghiệm đáng nhớ.
+Khám phá thế giới cùng chúng tôi với giá tốt nhất.
+</p>
+
+</div>
+
+<div class="footer-text">
+
+<h3>Liên kết nhanh</h3>
+
+<ul>
+<li><a href="webtravel.html">Trang chủ</a></li>
+<li><a href="diadiem.html">Tour trong nước</a></li>
+<li><a href="dichvu.html">Đặt Tour</a></li>
+<li><a href="webtravel.html">Khuyến mãi</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-lienhe">
+
+<h3>Liên hệ</h3>
+
+<h4>TRỤ SỞ CHÍNH</h4>
+<p>📍 190 Pasteur, Phường Xuân Hòa, TP. Hồ Chí Minh</p>
+<p>☎ Hotline: (84-28) 38 668 999</p>
+<p>📠 Fax: (84-28) 38 29 9142</p>
+<p>✉ Email: info@vietravel.com</p>
+
+<h4>PHÒNG KINH DOANH DU LỊCH CHỢ LỚN</h4>
+<p>📍 86A Châu Văn Liêm, Phường Chợ Lớn</p>
+<p>☎ Hotline: (84-28) 35 358 709</p>
+
+
+</ul>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Theo dõi</h3>
+
+<div class="social">
+
+<a href="#">Facebook</a>
+<a href="#">Instagram</a>
+<a href="#">Youtube</a>
+
+</div>
+</div>
+</div>
+</footer>
+</body>

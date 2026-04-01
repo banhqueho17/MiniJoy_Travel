@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Blog Du Lịch</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background:#f4f6f9;
+}
+.container{
+    width:1200px;
+    margin:auto;
+}
+/* TOP BAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f1f3f6;
+    padding:8px 40px;   /* chỉnh giống header */
+    font-size:14px;
+    color:#444;
+}
+
+
+.topbar-left span{
+    margin-right:25px;
+}
+
+.topbar-right a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#444;
+}
+
+.topbar-right a:hover{
+    color:#0077cc;
+}
+
+/* MAIN HEADER */
+.top-contact{
+    background:#0099cc;
+    padding:8px 20px;
+    font-size:14px;
+    display:flex;
+    justify-content:space-between; /* email trái - hotline phải */
+    color:white;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 20px;   /* giảm từ 40px xuống */
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.logo img{
+    width:100px;   /* chỉnh kích thước logo */
+    height:auto;
+}
+
+.logo h1{
+    margin:0;
+    font-size:36px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:orange;
+}
+.logo{
+    font-size:26px;
+    font-weight:700;
+    color:#1f6fb2;
+}
+
+.logo span{
+    color:#ff7a00;
+}
+
+/* SEARCH */
+
+.search{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.search input{
+    width:320px;
+    padding:10px 18px;
+    border-radius:25px;
+    border:1px solid #ddd;
+    outline:none;
+    font-size:14px;
+}
+
+.search input:focus{
+    border-color:#1f6fb2;
+}
+
+/* MENU */
+
+.menu{
+    display:flex;
+    align-items:center;
+}
+
+.menu a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#2d5fa4;
+    font-weight:500;
+    font-size:15px;
+}
+
+.menu a:hover{
+    color:#ff7a00;
+}
+
+/* BUTTON */
+
+.btn-tour{
+    margin-left:20px;
+    background:#ffe7c4;
+    border:none;
+    padding:10px 18px;
+    border-radius:22px;
+    font-weight:600;
+    color:#ff6b2c;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-tour:hover{
+    background:#ffd79b;
+}
+
+/* Banner */
+.banner{
+    width:100%;
+    height:500px; /* tăng chiều cao cho đẹp */
+
+    background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+    background-size:cover;        /* phủ toàn khung */
+    background-position:center;   /* căn giữa ảnh */
+    background-repeat:no-repeat;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:48px;
+    font-weight:bold;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.menu{
+    display:none;
+}
+
+.search input{
+    width:200px;
+}
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f3f6fb;
+}
+
+/* HERO */
+.hero{
+height:420px;
+background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e"); /* ảnh của bạn */
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+color:white;
+}
+
+
+/* nội dung */
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero-content h1{
+font-size:48px;
+font-weight:700;
+margin-bottom:10px;
+text-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-content p{
+font-size:18px;
+opacity:0.9;
+}
+
+
+/* BLOG */
+
+.blog-container{
+width:1200px;
+margin:auto;
+padding:50px 0;
+}
+
+.blog-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+/* CARD */
+
+.blog-card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.blog-card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+
+.blog-img{
+height:200px;
+overflow:hidden;
+}
+
+.blog-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.4s;
+}
+
+.blog-card:hover img{
+transform:scale(1.1);
+}
+
+/* CONTENT */
+
+.blog-content{
+padding:20px;
+}
+
+.blog-tag{
+background:#1b5fa7;
+color:white;
+font-size:12px;
+padding:4px 10px;
+border-radius:20px;
+display:inline-block;
+margin-bottom:10px;
+}
+
+.blog-content h3{
+margin-bottom:10px;
+font-size:18px;
+}
+
+.blog-content p{
+font-size:14px;
+color:#555;
+margin-bottom:15px;
+}
+
+/* BUTTON */
+
+.read-btn{
+display:inline-block;
+padding:8px 18px;
+border-radius:20px;
+background:#1b5fa7;
+color:white;
+font-size:13px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.read-btn:hover{
+background:#144a85;
+}
+
+/* DATE */
+
+.blog-date{
+font-size:12px;
+color:#999;
+margin-bottom:8px;
+}
+
+</style>
+</head>
+
+
+<body>
+<!-- TOP BAR -->
+<div class="topbar">
+
+<div class="topbar-left">
+<span>✉ info@minijoytravel.com</span>
+<span>📞 1900 1707 (8:00 - 22:00)</span>
+</div>
+
+<div class="topbar-right">
+<a href="diadiem.html">Chọn điểm khởi hành</a>
+<a href="lienhe.html">Liên hệ</a>
+</div>
+
+</div>
+
+
+<!-- Trang chủ chính -->
+
+<div class="header">
+
+<div class="logo">
+        <img src="logo.png" alt="Logo MiniJoy">
+MiniJoy <span>Travel</span>
+</div>
+
+<div class="search">
+<input type="text" placeholder="Tìm tour du lịch...">
+</div>
+
+<div class="menu">
+<a href="index.html">Trang chủ</a>
+<a href="diadiem.html">Địa điểm</a>
+<a href="blog.html">Blog</a>
+<a href="dichvu.html">Dịch vụ</a>
+<a href="lienhe.html">Liên hệ</a>
+
+<button class="btn-tour">
+Tour theo yêu cầu
+</button>
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Blog Du Lịch</h1>
+<p>Khám phá những điểm đến tuyệt vời trên thế giới</p>
+
+</div>
+
+</section>
+
+
+<!-- BLOG LIST -->
+
+<section class="blog-container">
+
+<div class="blog-grid">
+
+<!-- BLOG 1 -->
+
+<div class="blog-card">
+
+<div class="blog-img">
+<img src="https://booking.muongthanh.com/upload_images/images/H%60/lich-trinh-di-du-lich-da-nang.jpg">
+</div>
+
+<div class="blog-content">
+
+<div class="blog-date">12/03/2026</div>
+
+<h3>Top 5 địa điểm du lịch Đà Nẵng</h3>
+
+<p>Những điểm đến đẹp nhất tại Đà Nẵng bạn không nên bỏ lỡ.</p>
+
+<a href="#" class="read-btn">Đọc tiếp</a>
+
+</div>
+
+</div>
+
+
+<!-- BLOG 2 -->
+
+<div class="blog-card">
+
+<div class="blog-img">
+<img src="https://hanoistour.com/wp-content/uploads/2024/12/dao-ngoc-phu-quoc.jpg">
+</div>
+
+<div class="blog-content">
+
+<div class="blog-date">10/03/2026</div>
+
+<h3>Kinh nghiệm du lịch Phú Quốc</h3>
+
+<p>Hướng dẫn chi tiết cho chuyến đi Phú Quốc tiết kiệm.</p>
+
+<a href="#" class="read-btn">Đọc tiếp</a>
+
+</div>
+
+</div>
+
+
+<!-- BLOG 3 -->
+
+<div class="blog-card">
+
+<div class="blog-img">
+<img src="https://vietkingtravel.com/wp-content/uploads/2019/09/sapa-dep.jpg">
+</div>
+
+<div class="blog-content">
+
+<div class="blog-date">08/03/2026</div>
+
+<h3>Khám phá Sapa mùa mây</h3>
+
+<p>Thị trấn sương mù với cảnh đẹp và khí hậu mát mẻ.</p>
+
+<a href="#" class="read-btn">Đọc tiếp</a>
+
+</div>
+
+</div>
+
+
+<!-- BLOG 4 -->
+
+<div class="blog-card">
+
+<div class="blog-img">
+<img src="https://i.ytimg.com/vi/KyC_mKy7Zf8/hq720.jpg?sqp=-oaymwEhCK…UAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC48VH0TpCxKrkjupFHgj8eYSIA9Q">
+</div>
+
+<div class="blog-content">
+
+<div class="blog-date">05/03/2026</div>
+
+<h3>Du lịch Bangkok tự túc</h3>
+
+<p>Những điểm ăn chơi nổi tiếng tại Bangkok.</p>
+
+<a href="#" class="read-btn">Đọc tiếp</a>
+
+</div>
+
+</div>
+
+
+<!-- BLOG 5 -->
+
+<div class="blog-card">
+
+<div class="blog-img">
+<img src="https://merperledalat.vn/wp-content/uploads/2024/07/Nhung-mon-an-dac-san-Da-Lat.jpeg">
+</div>
+
+<div class="blog-content">
+
+<div class="blog-date">03/03/2026</div>
+
+<h3>Top món ăn phải thử ở Đà Lạt</h3>
+
+<p>Ẩm thực Đà Lạt luôn khiến du khách mê mẩn.</p>
+
+<a href="#" class="read-btn">Đọc tiếp</a>
+
+</div>
+
+</div>
+
+
+<!-- BLOG 6 -->
+
+<div class="blog-card">
+
+<div class="blog-img">
+<img src="https://res.klook.com/image/upload/q_85/c_fill,w_750/v1762736223/xrbsimccocyobh0l09zn.jpg">
+</div>
+
+<div class="blog-content">
+<div class="blog-date">01/03/2026</div>
+
+<h3>Kinh nghiệm du lịch Singapore</h3>
+
+<p>Gợi ý lịch trình du lịch Singapore 4 ngày.</p>
+
+<a href="#" class="read-btn">Đọc tiếp</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
+<!--footer-->
+<style>
+    
+.footer{
+position:relative;
+background:#ffffff;
+color:#1e3a8a;
+padding:60px 0 20px;
+overflow:hidden;
+}
+
+/* ảnh nền mờ */
+
+.footer-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:url("17.jpg") center/cover no-repeat;
+
+opacity:0.30;
+z-index:0;
+}
+
+/* container */
+
+.footer-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:40px;
+padding:0 40px;
+position:relative;
+z-index:1;
+}
+
+/* logo */
+
+.footer-logo{
+width:180px;
+margin-bottom:15px;
+}
+
+/* tiêu đề */
+
+.footer-col h3{
+margin-bottom:15px;
+font-size:18px;
+}
+
+/* list */
+
+.footer-col ul{
+list-style:none;
+padding:0;
+}
+
+.footer-col ul li{
+margin-bottom:10px;
+color:#0c56b0;
+}
+
+/* link */
+.footer-text{
+color:#1e3a8a;
+font-weight:600;
+}
+
+.footer-lienhe{
+color:#1e3a8a;
+font-weight:600;
+}
+/* social */
+
+.social{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+/* bottom */
+
+.footer-bottom{
+text-align:center;
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,0.1);
+padding-top:15px;
+color:#94a3b8;
+}
+.footer-brand{
+font-size:28px;
+font-weight:700;
+}
+
+.brand-blue{
+color:#2b6cb0; /* xanh */
+}
+
+.brand-orange{
+color:#ff6a00; /* cam */
+}
+
+.footer-brand{
+display:flex;
+align-items:center;
+gap:15px; /* khoảng cách logo và chữ */
+justify-content:center;
+}
+
+/* logo */
+
+.logo{
+width:70px;
+}
+
+/* chữ */
+
+.footer-brand h2{
+font-size:32px;
+font-weight:700;
+margin:0;
+}
+
+.brand-blue{
+color:#2b6cb0;
+}
+
+.brand-orange{
+color:#ff6a00;
+}
+</style>
+
+<body>
+    
+<footer class="footer">
+
+<div class="footer-overlay"></div>
+
+<div class="footer-container">
+
+<div class="footer-col logo-col">
+
+
+<div class="footer-brand">
+
+<img src="logo.png" class="logo">
+
+<h2>
+<span class="brand-blue">MiniJoy</span>
+<span class="brand-orange">Travel</span>
+</h2>
+
+</div>
+<p>
+Mang đến những hành trình tuyệt vời với trải nghiệm đáng nhớ.
+Khám phá thế giới cùng chúng tôi với giá tốt nhất.
+</p>
+
+</div>
+
+<div class="footer-text">
+
+<h3>Liên kết nhanh</h3>
+
+<ul>
+<li><a href="webtravel.html">Trang chủ</a></li>
+<li><a href="diadiem.html">Tour trong nước</a></li>
+<li><a href="dichvu.html">Đặt Tour</a></li>
+<li><a href="webtravel.html">Khuyến mãi</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-lienhe">
+
+<h3>Liên hệ</h3>
+
+<h4>TRỤ SỞ CHÍNH</h4>
+<p>📍 190 Pasteur, Phường Xuân Hòa, TP. Hồ Chí Minh</p>
+<p>☎ Hotline: (84-28) 38 668 999</p>
+<p>📠 Fax: (84-28) 38 29 9142</p>
+<p>✉ Email: info@vietravel.com</p>
+
+<h4>PHÒNG KINH DOANH DU LỊCH CHỢ LỚN</h4>
+<p>📍 86A Châu Văn Liêm, Phường Chợ Lớn</p>
+<p>☎ Hotline: (84-28) 35 358 709</p>
+
+
+</ul>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Theo dõi</h3>
+
+<div class="social">
+
+<a href="#">Facebook</a>
+<a href="#">Instagram</a>
+<a href="#">Youtube</a>
+
+</div>
+</div>
+</div>
+</footer>
+</body>

@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>MiniJoy Travel</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI', Tahoma, sans-serif;
+    background:#f4f6f9;
+}
+
+/* TOP BAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f1f3f6;
+    padding:8px 60px;
+    font-size:14px;
+    color:#444;
+}
+
+.topbar-left span{
+    margin-right:25px;
+}
+
+.topbar-right a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#444;
+}
+
+.topbar-right a:hover{
+    color:#0077cc;
+}
+
+/* MAIN HEADER */
+.top-contact{
+    background:#0099cc;
+    padding:8px 20px;
+    font-size:14px;
+    display:flex;
+    justify-content:space-between; /* email trái - hotline phải */
+    color:white;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 20px;   /* giảm từ 40px xuống */
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.logo img{
+    width:100px;   /* chỉnh kích thước logo */
+    height:auto;
+}
+
+.logo h1{
+    margin:0;
+    font-size:36px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:orange;
+}
+.logo{
+    font-size:26px;
+    font-weight:700;
+    color:#1f6fb2;
+}
+
+.logo span{
+    color:#ff7a00;
+}
+
+/* SEARCH */
+
+.search{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.search input{
+    width:320px;
+    padding:10px 18px;
+    border-radius:25px;
+    border:1px solid #ddd;
+    outline:none;
+    font-size:14px;
+}
+
+.search input:focus{
+    border-color:#1f6fb2;
+}
+
+/* MENU */
+
+.menu{
+    display:flex;
+    align-items:center;
+}
+
+.menu a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#2d5fa4;
+    font-weight:500;
+    font-size:15px;
+}
+.menu a{
+transition:0.3s;
+}
+
+.menu a:hover{
+color:#ff6a00;
+transform:translateY(-2px);
+}
+.menu a:hover{
+    color:#ff7a00;
+}
+
+/* BUTTON */
+
+.btn-tour{
+    margin-left:20px;
+    background:#ffe7c4;
+    border:none;
+    padding:10px 18px;
+    border-radius:22px;
+    font-weight:600;
+    color:#ff6b2c;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-tour:hover{
+    background:#ffd79b;
+}
+.btn-search,
+.btn-tour,
+.promo-btn{
+transition:0.3s;
+}
+
+.btn-search:hover{
+transform:scale(1.05);
+background:#1f4f82;
+}
+
+.btn-tour:hover{
+transform:scale(1.05);
+background:#ffd79b;
+}
+
+.promo-btn:hover{
+background:#0077cc;
+color:white;
+}
+
+/* BANNER */
+
+.banner{
+    position:relative;
+    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+    background-size:cover;
+    background-position:center;
+    height:420px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* SEARCH BOX ON BANNER */
+
+.banner-search{
+    position:absolute;
+    bottom:-40px;
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    display:flex;
+    gap:20px;
+    align-items:end;
+}
+.banner-search{
+transition:0.35s;
+}
+
+.banner-search:hover{
+box-shadow:0 20px 45px rgba(0,0,0,0.25);
+transform:translateY(-5px);
+}
+
+/* FIELD */
+
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+.field label{
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.field span{
+    color:red;
+}
+
+/* INPUT */
+
+.field select,
+.field input{
+    width:240px;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid #ddd;
+}
+
+/* BUTTON SEARCH */
+
+.btn-search{
+background:#2f66a5;
+    color:white;
+    border:none;
+    padding:13px 22px;
+    border-radius:12px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.btn-search:hover{
+    background:#1f4f82;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.menu{
+    display:none;
+}
+.menu a{
+transition:0.3s;
+}
+
+.menu a:hover{
+color:#ff6a00;
+transform:translateY(-2px);
+}
+
+.search input{
+    width:200px;
+}
+
+.banner-search{
+    flex-direction:column;
+    align-items:stretch;
+}
+
+}
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.logo img{
+    width:100px;   /* chỉnh kích thước logo */
+    height:auto;
+}
+
+.logo h1{
+    margin:0;
+    font-size:36px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:orange;
+}
+.logo{
+    font-size:26px;
+    font-weight:700;
+    color:#1f6fb2;
+}
+
+.logo span{
+    color:#ff7a00;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+
+<div class="topbar-left">
+<span>✉ info@minijoytravel.com</span>
+<span>📞 1900 1707 (8:00 - 22:00)</span>
+</div>
+
+<div class="topbar-right">
+<a href="diadiem.html">Chọn điểm khởi hành</a>
+<a href="lienhe.html">Liên hệ</a>
+</div>
+
+</div>
+
+
+<!-- Trang chủ chính -->
+
+<div class="header">
+
+<div class="logo">
+        <img src="logo.png" alt="Logo MiniJoy">
+MiniJoy <span>Travel</span>
+</div>
+
+<div class="search">
+<input type="text" placeholder="Tìm tour du lịch...">
+</div>
+
+<div class="menu">
+<a href="index.html">Trang chủ</a>
+<a href="diadiem.html">Địa điểm</a>
+<a href="blog.html">Blog</a>
+<a href="dichvu.html">Dịch vụ</a>
+<a href="lienhe.html">Liên hệ</a>
+
+<button class="btn-tour">
+Tour theo yêu cầu
+</button>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BANNER -->
+
+<div class="banner">
+
+<div class="banner-search">
+
+<div class="field">
+<label>Bạn muốn đi đâu <span>*</span></label>
+<select>
+<option>Chọn điểm đến</option>
+<option>Đà Lạt</option>
+<option>Phú Quốc</option>
+<option>Đà Nẵng</option>
+<option>Nha Trang</option>
+</select>
+</div>
+
+<div class="field">
+<label>Ngày khởi hành</label>
+<input type="text" placeholder="10/03/2026 - 09/04/2026">
+</div>
+
+<button class="btn-search">
+🔍 Tìm kiếm
+</button>
+
+</div>
+</div>
+<style>
+/* ===== TOUR SECTION ===== */
+.tour-section{
+padding:80px 60px;
+background:white;
+}
+
+.tour-title-small{
+color:#3b82f6;
+font-size:14px;
+margin-bottom:5px;
+}
+
+.tour-title{
+font-size:32px;
+font-weight:700;
+margin-bottom:40px;
+}
+
+.tour-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+/* TOUR CARD */
+
+.tour-card{
+display:flex;
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+.tour-card{
+transition:0.35s;
+}
+
+.tour-card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 30px rgba(0,0,0,0.18);
+}
+
+.tour-img{
+transition:0.4s;
+}
+
+.tour-card:hover .tour-img{
+transform:scale(1.08);
+}
+
+.tour-img{
+width:220px;
+height:160px;
+object-fit:cover;
+}
+
+.tour-info{
+padding:15px;
+}
+
+.tour-name{
+font-size:18px;
+font-weight:600;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+.tour-price{
+font-size:22px;
+font-weight:700;
+color:#ff6a00;
+}
+
+.tour-old{
+text-decoration:line-through;
+color:#9ca3af;
+margin-left:10px;
+font-size:14px;
+}
+
+.tour-meta{
+margin-top:10px;
+font-size:14px;
+color:#555;
+}
+
+.book-btn{
+display:inline-block;
+margin-top:10px;
+color:#2563eb;
+font-weight:600;
+text-decoration:none;
+}
+/* ===== TOP TOUR SECTION ===== */
+
+.top-tour-section{
+padding:80px;
+background:#f7f9fc;
+}
+
+.top-tour-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:40px;
+}
+
+.top-tour-small{
+color:#3b82f6;
+font-size:14px;
+font-weight:600;
+}
+
+.top-tour-title{
+font-size:34px;
+font-weight:700;
+margin-top:5px;
+}
+
+.view-all{
+border:1px solid #ddd;
+padding:8px 18px;
+border-radius:25px;
+text-decoration:none;
+color:#444;
+font-size:14px;
+transition:0.3s;
+}
+
+.view-all:hover{
+background:#3b82f6;
+color:white;
+}
+
+/* GRID */
+
+.top-tour-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+/* CARD */
+
+.top-tour-card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 18px rgba(0,0,0,0.08);
+transition:0.35s;
+}
+
+.top-tour-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* IMAGE */
+
+.top-tour-img{
+position:relative;
+height:200px;
+overflow:hidden;
+}
+
+.top-tour-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.4s;
+}
+
+.top-tour-card:hover img{
+transform:scale(1.08);
+}
+
+/* DISCOUNT */
+
+.discount{
+position:absolute;
+top:12px;
+left:12px;
+background:#ff7a00;
+color:white;
+padding:5px 12px;
+border-radius:20px;
+font-size:13px;
+}
+
+/* RATING */
+
+.rating{
+position:absolute;
+bottom:10px;
+right:10px;
+background:black;
+color:white;
+padding:4px 8px;
+border-radius:15px;
+font-size:12px;
+}
+
+/* CONTENT */
+
+.top-tour-content{
+padding:18px;
+}
+
+.top-tour-name{
+font-weight:600;
+margin-bottom:10px;
+}
+
+/* TAG */
+
+.tag{
+display:inline-block;
+border:1px solid #ddd;
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+margin-right:5px;
+margin-top:5px;
+}
+
+/* PRICE */
+
+.price-box{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:15px;
+}
+
+.price{
+color:#ff6a00;
+font-weight:700;
+font-size:20px;
+}
+
+.old-price{
+text-decoration:line-through;
+color:#999;
+font-size:13px;
+}
+
+/* BUTTON */
+
+.book-btn2{
+background:#2f66a5;
+color:white;
+padding:8px 16px;
+border-radius:20px;
+text-decoration:none;
+font-size:13px;
+}
+
+.book-btn2:hover{
+background:#1f4f82;
+}
+</style>
+
+
+<!-- ===== TOUR SECTION ===== -->
+
+<div class="tour-section">
+
+<div class="tour-title-small">GỢI Ý CHO BẠN</div>
+<div class="tour-title">Ưu đãi hôm nay</div>
+
+<div class="tour-grid">
+
+<!-- TOUR 1 -->
+
+<div class="tour-card">
+<img class="tour-img" src="https://images.unsplash.com/photo-1528127269322-539801943592">
+<div class="tour-info">
+<div class="tour-name">Tour 1 ngày Mỹ Tho - Bến Tre</div>
+<span class="tour-price">550.000đ</span>
+<span class="tour-old">687.500đ</span>
+<div class="tour-meta">⭐ 5 | Còn 20 chỗ | Xe ô tô</div>
+<a class="book-btn" href="#">Đặt ngay →</a>
+</div>
+</div>
+
+<!-- TOUR 2 -->
+
+<div class="tour-card">
+<img class="tour-img" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<div class="tour-info">
+<div class="tour-name">Tour 2 ngày 1 đêm Mỹ Tho - Bến Tre</div>
+<span class="tour-price">1.650.000đ</span>
+<span class="tour-old">2.062.500đ</span>
+<div class="tour-meta">⭐ 5 | Còn 20 chỗ | Xe ô tô</div>
+<a class="book-btn" href="#">Đặt ngay →</a>
+</div>
+</div>
+
+<!-- TOUR 3 -->
+
+<div class="tour-card">
+<img class="tour-img" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<div class="tour-info">
+<div class="tour-name">Tour 3 ngày 2 đêm Cần Thơ - Cà Mau</div>
+<span class="tour-price">3.080.000đ</span>
+<span class="tour-old">3.623.529đ</span>
+<div class="tour-meta">⭐ 5 | Còn 20 chỗ | Xe ô tô</div>
+<a class="book-btn" href="#">Đặt ngay →</a>
+</div>
+</div>
+
+<!-- TOUR 4 -->
+
+<div class="tour-card">
+    <img class="tour-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+    <div class="tour-info">
+        <div class="tour-name">Tour Cần Giờ 1 ngày</div>
+        <span class="tour-price">850.000đ</span>
+        <span class="tour-old">1.133.333đ</span>
+        <div class="tour-meta">⭐ 5 | Còn 20 chỗ | Xe ô tô</div>
+        <a class="book-btn" href="#">Đặt ngay →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PROMO --> 
+<div class="promo-section"> 
+    <div class="tour-title-small">KHUYẾN MÃI</div> 
+    <div class="promo-title">Ưu đãi đang diễn ra</div> 
+    <div class="promo-grid"> <div class="promo-card">
+        <div class="promo-badge">🔥 Ưu đãi</div> 
+        <div class="promo-images">
+            <img src="https://images.unsplash.com/photo-1528127269322-539801943592"> <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"> </div> <div class="promo-content"> Tour Miền Tây 2n1đ | Chợ Nổi Cái Răng <br> <a class="promo-btn">Xem ưu đãi</a> </div> </div> <div class="promo-card"> <div class="promo-badge">🔥 Ưu đãi</div> <div class="promo-images"> 
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"> <img src="https://images.unsplash.com/photo-1528127269322-539801943592"> 
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"> </div> <div class="promo-content"> Tour Tây Ninh 1 ngày <br> <a class="promo-btn">Xem ưu đãi</a> 
+        </div>
+    </div> 
+    <div class="promo-card"> 
+        <div class="promo-badge">🔥 Ưu đãi</div> 
+        <div class="promo-images"> <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"> <img src="https://images.unsplash.com/photo-1528127269322-539801943592"> <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"> </div> 
+        <div class="promo-content"> Tour Mỹ Tho - Bến Tre <br> 
+            <a class="promo-btn">Xem ưu đãi</a> 
+        </div> 
+    </div> 
+</div> 
+ 
+<style>
+
+/* ===== SECTION ===== */
+
+.promo-section{
+background:#f3f6fb;
+padding:90px 80px;
+width:100%;
+}
+
+/* TITLE */
+
+.promo-small{
+color:#3b82f6;
+font-size:14px;
+font-weight:600;
+margin-bottom:8px;
+}
+
+.promo-title{
+font-size:40px;
+font-weight:700;
+margin-bottom:50px;
+color:#1f2937;
+}
+
+/* GRID */
+
+.promo-grid{
+display:flex;
+gap:30px;
+width:100%;
+}
+/* CARD */
+
+.promo-card{
+flex:1;
+height:280px;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+.promo-card{
+transition:0.35s;
+}
+
+.promo-card:hover{
+transform:translateY(-10px);
+box-shadow:0 18px 40px rgba(0,0,0,0.25);
+}
+
+.promo-images img{
+transition:0.5s;
+}
+
+.promo-card:hover img{
+transform:scale(1.08);
+}
+
+/* IMAGE */
+
+.promo-images{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+height:100%;
+}
+
+.promo-images img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* BADGE */
+
+.promo-badge{
+position:absolute;
+top:14px;
+left:14px;
+background:#ff6b6b;
+color:white;
+padding:6px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+}
+
+/* OVERLAY */
+
+.promo-content{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+padding:20px;
+background:linear-gradient(transparent,rgba(0,0,0,0.7));
+color:white;
+}
+
+/* TEXT */
+
+.promo-text{
+font-size:18px;
+font-weight:600;
+margin-bottom:12px;
+}
+
+/* BUTTON */
+
+.promo-btn{
+display:inline-block;
+background:white;
+color:#111;
+padding:7px 16px;
+border-radius:20px;
+font-size:14px;
+text-decoration:none;
+}
+/* DOT */
+
+.promo-dots{
+display:flex;
+justify-content:center;
+margin-top:25px;
+gap:8px;
+}
+
+.dot{
+width:9px;
+height:9px;
+border-radius:50%;
+background:#cbd5e1;
+}
+
+.dot.active{
+background:#3b82f6;
+}
+.top-tour-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:30px;
+}
+
+.top-tour-card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.top-tour-card:hover{
+transform:translateY(-6px);
+}
+
+.top-tour-img{
+position:relative;
+height:200px;
+overflow:hidden;
+}
+
+.top-tour-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.discount{
+position:absolute;
+top:10px;
+left:10px;
+background:#ff7a00;
+color:white;
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+}
+
+.rating{
+position:absolute;
+bottom:10px;
+right:10px;
+background:black;
+color:white;
+padding:4px 8px;
+border-radius:20px;
+font-size:12px;
+}
+
+.top-tour-content{
+padding:18px;
+}
+
+.top-tour-name{
+font-weight:600;
+margin-bottom:10px;
+}
+
+.tag{
+background:#f1f3f6;
+padding:4px 8px;
+border-radius:10px;
+font-size:12px;
+margin-right:6px;
+}
+
+.price-box{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:15px;
+}
+
+.old-price{
+text-decoration:line-through;
+font-size:13px;
+color:#999;
+}
+
+.price{
+color:#ff6b00;
+font-weight:700;
+font-size:18px;
+}
+
+.book-btn2{
+background:#3b6ea8;
+color:white;
+padding:8px 16px;
+border-radius:20px;
+font-size:13px;
+text-decoration:none;
+}
+
+.container{
+max-width:1200px;
+margin:0 auto;
+padding:0 20px;
+}
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+.top-tour-header{
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+margin-bottom:10px;
+}
+.top-tour-small{
+    text-align: left;
+      padding:0px 0px;
+}
+
+.top-tour-title{
+    text-align: left;
+      padding:0px 0px;
+}
+
+
+.top-tour-section{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 40px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.top-tour-header{
+margin-bottom:15px;
+text-align:left;
+}
+.top-tour-header{
+padding-left:0;
+}
+.top-tour-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+.top-tour-header{
+background:transparent;
+}
+
+.container{
+background:transparent;
+}
+</style>
+<!-- TOP TOUR -->
+<section class="top-tour-section">
+
+  <div class="container">
+
+      <div class="top-tour-header">
+          <div class="top-tour-small">ĐƯỢC KHÁCH ĐẶT NHIỀU</div>
+          <h2 class="top-tour-title">Top lựa chọn tháng này</h2>
+      </div>
+
+      <div class="top-tour-grid">
+          <!-- card tour -->
+      </div>
+
+  </div>
+
+</section>
+
+
+<div class="top-tour-grid">
+
+<!-- CARD 1 -->
+<div class="top-tour-card">
+
+<div class="top-tour-img">
+<span class="discount">-20%</span>
+<img src="https://images.unsplash.com/photo-1528127269322-539801943592">
+<div class="rating">⭐ 5</div>
+</div>
+
+<div class="top-tour-content">
+
+<div class="top-tour-name">Tour 1 ngày Mỹ Tho - Bến Tre</div>
+
+<span class="tag">🚗 Xe ô tô</span>
+<span class="tag">1 Ngày</span>
+<span class="tag">Mỗi ngày</span>
+
+<div class="price-box">
+<div>
+<div class="old-price">687.500đ</div>
+<div class="price">550.000đ</div>
+</div>
+
+<a class="book-btn2">ĐẶT NGAY →</a>
+</div>
+
+</div>
+</div>
+
+
+<!-- CARD 2 -->
+<div class="top-tour-card">
+
+<div class="top-tour-img">
+<span class="discount">-20%</span>
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<div class="rating">⭐ 5</div>
+</div>
+
+<div class="top-tour-content">
+
+<div class="top-tour-name">Tour 2 ngày 1 đêm Mỹ Tho - Bến Tre - Cần Thơ</div>
+
+<span class="tag">🚗 Xe ô tô</span>
+<span class="tag">2N1Đ</span>
+<span class="tag">Mỗi ngày</span>
+
+<div class="price-box">
+<div>
+<div class="old-price">2.062.500đ</div>
+<div class="price">1.650.000đ</div>
+</div>
+
+<a class="book-btn2">ĐẶT NGAY →</a>
+</div>
+
+</div>
+</div>
+
+
+<!-- CARD 3 -->
+<div class="top-tour-card">
+
+<div class="top-tour-img">
+<span class="discount">-15%</span>
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<div class="rating">⭐ 5</div>
+</div>
+
+<div class="top-tour-content">
+
+<div class="top-tour-name">Tour 3 ngày 2 đêm Cần Thơ - Cà Mau</div>
+
+<span class="tag">🚗 Xe ô tô</span>
+<span class="tag">3N2Đ</span>
+<span class="tag">Ngày cụ thể</span>
+
+<div class="price-box">
+<div>
+<div class="old-price">3.623.529đ</div>
+<div class="price">3.080.000đ</div>
+</div>
+
+<a class="book-btn2">ĐẶT NGAY →</a>
+</div>
+
+</div>
+</div>
+
+
+<!-- CARD 4 -->
+<div class="top-tour-card">
+
+<div class="top-tour-img">
+<span class="discount">-25%</span>
+<img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4">
+<div class="rating">⭐ 5</div>
+</div>
+
+<div class="top-tour-content">
+
+<div class="top-tour-name">Tour Cần Giờ 1 ngày</div>
+
+<span class="tag">🚗 Xe ô tô</span>
+<span class="tag">1 Ngày</span>
+<span class="tag">Mỗi ngày</span>
+
+<div class="price-box">
+<div>
+<div class="old-price">1.133.333đ</div>
+<div class="price">850.000đ</div>
+</div>
+
+<a class="book-btn2">ĐẶT NGAY →</a>
+</div>
+
+</div>
+</div>
+
+
+<!-- CARD 5 -->
+<div class="top-tour-card">
+
+<div class="top-tour-img">
+<span class="discount">-12%</span>
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<div class="rating">⭐ 5</div>
+</div>
+
+<div class="top-tour-content">
+
+<div class="top-tour-name">Tour miền tây 3 ngày 2 đêm</div>
+
+<span class="tag">🚗 Xe ô tô</span>
+<span class="tag">3N2Đ</span>
+<span class="tag">Ngày cụ thể</span>
+
+<div class="price-box">
+<div>
+<div class="old-price">3.613.636đ</div>
+<div class="price">3.180.000đ</div>
+</div>
+
+<a class="book-btn2">ĐẶT NGAY →</a>
+</div>
+
+</div>
+</div>
+
+
+<!-- CARD 6 -->
+<div class="top-tour-card">
+
+<div class="top-tour-img">
+<span class="discount">-30%</span>
+<img src="https://vntrip.cdn.vccloud.vn/cam-nang/wp-content/uploads/2017/07/anh-3-2.png">
+<div class="rating">⭐ 5</div>
+</div>
+
+<div class="top-tour-content">
+
+<div class="top-tour-name">Tour địa đạo Củ Chi</div>
+
+<span class="tag">🚗 Xe ô tô</span>
+<span class="tag">Nửa ngày</span>
+<span class="tag">Mỗi ngày</span>
+
+<div class="price-box">
+<div>
+<div class="old-price">571.429đ</div>
+<div class="price">400.000đ</div>
+</div>
+
+<a class="book-btn2">ĐẶT NGAY →</a>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</body>
+</html>
+<!--footer-->
+<style>
+    
+.footer{
+position:relative;
+background:#ffffff;
+color:#1e3a8a;
+padding:60px 0 20px;
+overflow:hidden;
+}
+
+/* ảnh nền mờ */
+
+.footer-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:url("17.jpg") center/cover no-repeat;
+
+opacity:0.30;
+z-index:0;
+}
+
+/* container */
+
+.footer-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:40px;
+padding:0 40px;
+position:relative;
+z-index:1;
+}
+
+/* logo */
+
+.footer-logo{
+width:180px;
+margin-bottom:15px;
+}
+
+/* tiêu đề */
+
+.footer-col h3{
+margin-bottom:15px;
+font-size:18px;
+}
+
+/* list */
+
+.footer-col ul{
+list-style:none;
+padding:0;
+}
+
+.footer-col ul li{
+margin-bottom:10px;
+color:#0c56b0;
+}
+
+/* link */
+.footer-text{
+color:#1e3a8a;
+font-weight:600;
+}
+
+.footer-lienhe{
+color:#1e3a8a;
+font-weight:600;
+}
+/* social */
+
+.social{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+/* bottom */
+
+.footer-bottom{
+text-align:center;
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,0.1);
+padding-top:15px;
+color:#94a3b8;
+}
+.footer-brand{
+font-size:28px;
+font-weight:700;
+}
+
+.brand-blue{
+color:#2b6cb0; /* xanh */
+}
+
+.brand-orange{
+color:#ff6a00; /* cam */
+}
+
+.footer-brand{
+display:flex;
+align-items:center;
+gap:15px; /* khoảng cách logo và chữ */
+justify-content:center;
+}
+
+/* logo */
+
+.logo{
+width:70px;
+}
+
+/* chữ */
+
+.footer-brand h2{
+font-size:32px;
+font-weight:700;
+margin:0;
+}
+
+.brand-blue{
+color:#2b6cb0;
+}
+
+.brand-orange{
+color:#ff6a00;
+}
+</style>
+
+<body>
+    
+<footer class="footer">
+
+<div class="footer-overlay"></div>
+
+<div class="footer-container">
+
+<div class="footer-col logo-col">
+
+
+<div class="footer-brand">
+
+<img src="logo.png" class="logo">
+
+<h2>
+<span class="brand-blue">MiniJoy</span>
+<span class="brand-orange">Travel</span>
+</h2>
+
+</div>
+<p>
+Mang đến những hành trình tuyệt vời với trải nghiệm đáng nhớ.
+Khám phá thế giới cùng chúng tôi với giá tốt nhất.
+</p>
+
+</div>
+
+<div class="footer-text">
+
+<h3>Liên kết nhanh</h3>
+
+<ul>
+<li><a href="webtravel.html">Trang chủ</a></li>
+<li><a href="diadiem.html">Tour trong nước</a></li>
+<li><a href="dichvu.html">Đặt Tour</a></li>
+<li><a href="webtravel.html">Khuyến mãi</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-lienhe">
+
+<h3>Liên hệ</h3>
+
+<h4>TRỤ SỞ CHÍNH</h4>
+<p>📍 190 Pasteur, Phường Xuân Hòa, TP. Hồ Chí Minh</p>
+<p>☎ Hotline: (84-28) 38 668 999</p>
+<p>📠 Fax: (84-28) 38 29 9142</p>
+<p>✉ Email: info@vietravel.com</p>
+
+<h4>PHÒNG KINH DOANH DU LỊCH CHỢ LỚN</h4>
+<p>📍 86A Châu Văn Liêm, Phường Chợ Lớn</p>
+<p>☎ Hotline: (84-28) 35 358 709</p>
+
+
+</ul>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Theo dõi</h3>
+
+<div class="social">
+
+<a href="#">Facebook</a>
+<a href="#">Instagram</a>
+<a href="#">Youtube</a>
+
+</div>
+</div>
+</div>
+</footer>
+</body>
